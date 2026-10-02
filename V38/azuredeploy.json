@@ -36,7 +36,7 @@
 },
 "subnets": [
 {
-"name": "kundtjanst-subnet",
+"name": "kundtjanst-subnet-v2",
 "properties": {
 "addressPrefix": "10.0.1.0/24"
 }
