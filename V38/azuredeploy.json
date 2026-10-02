@@ -1,1 +1,58 @@
-
+{
+"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+"contentVersion": "1.0.0.0",
+"parameters": {
+"location": {
+"type": "string",
+"defaultValue": "swedencentral"
+}
+},
+"variables": {
+"storageName": "[concat('novatrix', uniqueString(resourceGroup().id))]",
+"vnetName": "novatrix-vnet"
+},
+"resources": [
+{
+"type": "Microsoft.Storage/storageAccounts",
+"apiVersion": "2023-05-01",
+"name": "[variables('storageName')]",
+"location": "[parameters('location')]",
+"sku": {
+"name": "Standard_LRS"
+},
+"kind": "StorageV2",
+"properties": {}
+},
+{
+"type": "Microsoft.Network/virtualNetworks",
+"apiVersion": "2024-05-01",
+"name": "[variables('vnetName')]",
+"location": "[parameters('location')]",
+"properties": {
+"addressSpace": {
+"addressPrefixes": [
+"10.0.0.0/16"
+]
+},
+"subnets": [
+{
+"name": "kundtjanst-subnet",
+"properties": {
+"addressPrefix": "10.0.1.0/24"
+}
+}
+]
+}
+}
+],
+"outputs": {
+"storageAccountName": {
+"type": "string",
+"value": "[variables('storageName')]"
+},
+"virtualNetworkName": {
+"type": "string",
+"value": "[variables('vnetName')]"
+}
+}
+}
