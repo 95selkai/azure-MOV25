@@ -49,7 +49,7 @@
 "storageAccountName": {
 "type": "string",
 "value": "[variables('storageName')]"
-},
+}, 
 "virtualNetworkName": {
 "type": "string",
 "value": "[variables('vnetName')]"
