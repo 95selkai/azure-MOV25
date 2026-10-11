@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Välkommen till Nordvik</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #1a365d;
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        .form-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 550px;
+        }
+        .form-card h2 {
+            font-size: 1.6rem;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .form-card p.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #2d3748;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea,
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #2b6cb0;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #1a365d;
+            color: white;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+        .btn-submit:hover {
+            background-color: #2b6cb0;
+        }
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.9rem;
+            color: #718096;
+            background-color: #edf2f7;
+        }
+        .status-msg {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+        }
+        .status-success {
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Välkommen till Nordvik</h1>
+        <p>IT-kundtjänster</p>
+    </header>
+
+    <main>
+        <div class="form-card">
+            <h2>Gör en felanmälan</h2>
+            <p class="subtitle">Beskriv felet så hjälper förvaltaren dig.</p>
+
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label for="name">Ditt namn</label>
+                    <input type="text" id="name" required placeholder="För- och efternamn">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Din e-postadress</label>
+                    <input type="email" id="email" required placeholder="selma@volvotrix.se">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Rubrik / Ämne</label>
+                    <input type="text" id="subject" required placeholder="t.ex. Läckande kran i köket">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Beskrivning</label>
+                    <textarea id="message" required placeholder="Skriv din detaljerade felanmälan här..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Bifoga bild på skadan</label>
+                    <input type="file" id="image" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn-submit">Skicka felanmälan</button>
+            </form>
+
+            <div id="statusMsg" class="status-msg status-success">
+                Tack! Din felanmälan har skickats till förvaltaren.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Nordvik Fastigheter AB – Alla rättigheter förbehållna
+    </footer>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Simulerat anrop / koppling mot Power Automate Webhook & Blob Storage
+            const statusDiv = document.getElementById('statusMsg');
+            statusDiv.style.display = 'block';
+            this.reset();
+
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
