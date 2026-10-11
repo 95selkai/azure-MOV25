@@ -1,5 +1,5 @@
 
-# Nordvik Fastigheter AB – Hyresgästportal i Azure
+# Nordvik Fastigheter AB 
 
 ## Syfte
 Syftet med projektet är att planera, implementera och dokumentera en säker hyresgästportal i Microsoft Azure. Portalen gör det möjligt för hyresgäster att skicka in felanmälningar med rubrik, beskrivning och en bifogad bild.
