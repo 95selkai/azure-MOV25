@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "vm-nordvik-web"
+    },
+    "storageAccountName": {
+      "value": "stnordvikselma01"
+    },
+    "adminUsername": {
+      "value": "nordvikadmin"
+    },
+    "adminPassword": {
+      "value": "P@ssw0rdNordvik2026!"
+    },
+    "location": {
+      "value": "swedencentral"
+    }
+  }
+}
